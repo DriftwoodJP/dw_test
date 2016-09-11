@@ -1,5 +1,14 @@
 #!/usr/bin/env ruby
 
 require "dw_test"
+require "optparse"
+
+option_parser = OptionParser.new
+option_parser.on("-v", "--version",
+                 "Show version number") do
+  puts DwTest::VERSION
+  exit
+end
+option_parser.parse!(ARGV)
 
 puts DwTest.greet
